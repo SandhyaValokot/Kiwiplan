@@ -1,0 +1,62 @@
+
+import java.util.Scanner;
+import java.util.Random;
+class Array
+{
+    public static int repeat_val(int [] my_arr)
+    {
+        int repeat_val = 0, cmp_var = 0, flag = 0, count;
+
+        //System.out.println("Array");
+
+        for (int i=0; i < my_arr.length; i++)
+        {
+            cmp_var = my_arr[i];
+            count = 0;
+
+            //System.out.println(my_arr[i]);
+
+
+                for (int j = 0; j < my_arr.length; j++)
+                {
+                    if (cmp_var == my_arr[j]) {
+                        count = count + 1;
+                    }
+                    if ((count > 1) && (flag == 0))
+                    {
+                        flag = 1;
+                        repeat_val = my_arr[j];
+                    }
+                }
+
+
+        }
+
+
+        return repeat_val;
+    }
+
+    public static void main(String[] args)
+
+    {
+
+        Random rand = new Random(); //instance of random class
+        int upperbound = 1001;
+
+        //generate random values from 0-1001
+        int int_random = rand.nextInt(upperbound); //random number
+        int temp = rand.nextInt(upperbound); //random position
+
+        //System.out.println("Random Number is " + int_random);
+        //System.out.println("Random Number position " + temp);
+
+        int [] arr = new int[1000];
+        for (int a=0; a< arr.length; a++)
+        {
+            arr[a] = a+1;
+        }
+        arr[temp] = int_random;
+
+        System.out.println("Repeating Value is " + repeat_val(arr));
+    }
+}
